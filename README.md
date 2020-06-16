@@ -1,5 +1,5 @@
-# Parcel Starter
+# D3 Practice
 
-Extremely simple parcel starter for basic scss/js processing and bundling. Forked from the Code-Sandbox vanilla JS starter. 
+A playground to practice some D3.
 
 To run the app just run `npm install` and then `npm run start`.
