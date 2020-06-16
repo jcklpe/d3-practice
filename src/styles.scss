@@ -1,0 +1,132 @@
+
+@import "./styles/mixins.scss";
+//- Color Variables
+$start: #9be872;
+$start-light:  #ccf443 ;
+$reset:  #FF5733;
+$reset-light: #f66d41;
+$reset-focus: #ff381c;
+$restart: #ccf443;
+$restart-light: #d1f84b;
+$pause: #ffdc2d;
+$pause-light: #ffdc2d;
+
+//- Animation Variables
+$defaultAni: cubic-bezier(0.84, .01, 0.19, .93);
+
+//- Styles
+body {
+  margin:0;
+  font-family: "Courier New", Courier, monospace;
+  input:focus{
+    outline: none;
+  }
+
+  h1 {
+    margin: 50px 50px 0 25px;
+  }
+
+}
+
+.stopwatch-component {
+  display: inline-flex;
+  border: black solid 5px;
+  margin: 50px;
+  box-shadow: 0 2px 1px rgba(0,0,0,0.09),
+              0 4px 2px rgba(0,0,0,0.09),
+              0 8px 4px rgba(0,0,0,0.09),
+              0 16px 8px rgba(0,0,0,0.09),
+              0 32px 16px rgba(0,0,0,0.09);
+
+  .timer-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 50px;
+
+    p {
+      text-align: center;
+      font-size: 2rem;
+      min-width: 250px;
+      font-weight: bold;
+    }
+  }
+
+    .button-group {
+      padding: 0 50px;
+
+    button {
+      cursor: pointer;
+      padding: 25px;
+      margin: 25px;
+      min-width: 150px;
+      outline: 0;
+      font-size: 1.5rem;
+      border: black solid 5px;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.11),
+              0 2px 2px rgba(0,0,0,0.11),
+              0 4px 4px rgba(0,0,0,0.11),
+              0 6px 8px rgba(0,0,0,0.11),
+              0 8px 16px rgba(0,0,0,0.11);
+              transition: all 0.5s $defaultAni;
+
+              &:hover {
+                box-shadow: 0 2px 1px rgba(0,0,0,0.09),
+              0 6px 2px rgba(0,0,0,0.09),
+              0 8px 4px rgba(0,0,0,0.09),
+              0 10px 8px rgba(0,0,0,0.09),
+              0 20px 16px rgba(0,0,0,0.09);
+              transition: all 0.3s $defaultAni;
+              }
+
+      &::-moz-focus-inner {
+        border: 0;
+      }
+    }
+
+    .running {
+      background: $pause;
+      &:hover {
+      background: $pause-light;
+      transition: all 0.3s $defaultAni;
+      }
+    }
+
+    .paused {
+      background: $restart;
+      &:hover {
+        background: $restart-light;
+        transition: all 0.3s $defaultAni;
+        }
+    }
+    .reset-timer {
+      background: $reset;
+      &:hover {
+        background: $reset-light;
+        transition: all 0.3s $defaultAni;
+        }
+
+        &:active{
+          background: $reset-focus;
+          transition: all 0.7s $defaultAni;
+          }
+    }
+
+    .initial-state {
+      background: $start;
+      &:hover {
+        background: $start-light;
+        transition: all 0.3s $defaultAni;
+        }
+    }
+  }
+
+  @include breakpoint(phone) {
+    width: 100%;
+  }
+}
+
+#app {
+  margin: 0;
+  padding: 0;
+}
